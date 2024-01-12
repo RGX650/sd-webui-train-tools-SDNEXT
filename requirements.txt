@@ -6,7 +6,8 @@ opencv-python
 einops==0.4.1
 diffusers==0.25.0
 pytorch-lightning
-bitsandbytes<=0.42.0
+#bitsandbytes<=0.42.0
+file:///C:/AI/SDNEXT/setup/bitsandbytes-0.42.0-py3-none-any.whl
 tensorboard
 safetensors
 gradio
