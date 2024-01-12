@@ -1,15 +1,14 @@
 import launch
 import os
-import git
 
-my_path = os.path.dirname(os.path.realpath(__file__))
+req_file = os.path.join(os.path.dirname(os.path.realpath(__file__)), "requirements.txt")
 
-with git.Repo(my_path) as repo:
-    repo.git.submodule("update", "--init", "--recursive", "--force")
-    for submodule in repo.submodules:
-        submodule.update(init=True, recursive=True, force=True, keep_going=True)
+with open(req_file) as file:
+    for lib in file:
+        lib = lib.strip()
+        if not launch.is_installed(lib):
+            launch.run_pip(f"install {lib}", f"clear object requirement: {lib}")
 
-python_requirements_file = os.path.join(my_path, "requirements.txt")
-
-with open(python_requirements_file) as file:
-    launch.run_pip(f'install -r "{python_requirements_file}"', f"sd-webui-train-tools requirement: {python_requirements_file}")
+# Install bitsandbytes from the provided wheel URL
+bitsandbytes_wheel_url = "https://github.com/jllllll/bitsandbytes-windows-webui/releases/download/wheels/bitsandbytes-0.41.2.post2-py3-none-win_amd64.whl"
+launch.run_pip(f"install {bitsandbytes_wheel_url}", "clear object requirement: bitsandbytes")
