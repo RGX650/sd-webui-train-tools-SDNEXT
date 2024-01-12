@@ -4,6 +4,7 @@ import modules.scripts as scripts
 import gradio as gr
 from modules import shared
 from modules import ui
+from modules import  ui_symbols.refresh_symbol as refresh_symbol
 from modules import sd_samplers
 from liasece_sd_webui_train_tools.util import *
 from modules.call_queue import wrap_gradio_gpu_call, wrap_queued_call, wrap_gradio_call
@@ -40,7 +41,7 @@ def new_ui():
                             gr_project_dropdown = gr.Dropdown([], label=f"Project", value=None, interactive=True)
                     with gr.Column():
                         with gr.Row():
-                            project_refresh_button = ui.ToolButton(value=ui.refresh_symbol, elem_id="project_refresh_button")
+                            project_refresh_button = ui.ToolButton(value=refresh_symbol, elem_id="project_refresh_button")
                             create_project_btn = gr.Button(value="Create Project", variant="primary")
         with gr.Row(visible=False) as gr_project_version_row:
             # UI: Project version Dropdown
@@ -52,7 +53,7 @@ def new_ui():
                             gr_version_dropdown = gr.Dropdown([], label=f"Version", value=None, interactive=True)
                     with gr.Column():
                         with gr.Row():
-                            project_version_refresh_button = ui.ToolButton(value=ui.refresh_symbol, elem_id="refresh_gr_version_dropdown")
+                            project_version_refresh_button = ui.ToolButton(value=refresh_symbol, elem_id="refresh_gr_version_dropdown")
                             create_project_version_btn = gr.Button(value="Create Version", variant="primary")
         with gr.Row(visible=False) as gr_project_version_dateset_row:
             # UI: Project Version Dataset Dropdown
