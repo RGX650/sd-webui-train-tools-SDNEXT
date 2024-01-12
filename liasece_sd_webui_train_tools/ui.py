@@ -128,7 +128,7 @@ def new_ui():
                         with gr.Row():
                             tiles = shared.list_checkpoint_tiles()
                             train_base_model = gr.Dropdown(label="Train base model",value= tiles[0] if len(tiles) > 0 else "", choices= tiles, interactive = True, elem_id="train_base_model")
-                            train_base_model_refresh_button = ui.ToolButton(value=ui.refresh_symbol, elem_id="train_base_model_refresh_button")
+                            train_base_model_refresh_button = ui.ToolButton(value=refresh_symbol, elem_id="train_base_model_refresh_button")
                         with gr.Row():
                             train_base_on_sd_v2 = gr.Checkbox(label="Base on Stable Diffusion V2", value=False, elem_id="train_base_on_sd_v2", interactive = True)
                         with gr.Row():
@@ -187,7 +187,7 @@ def new_ui():
             with gr.Box():
                 with gr.Row():
                     gr_trains_dropdown = gr.Dropdown([], label=f"Trains", value=None, interactive=True)
-                    project_version_trains_refresh_button = ui.ToolButton(value=ui.refresh_symbol, elem_id="project_version_trains_refresh_button")
+                    project_version_trains_refresh_button = ui.ToolButton(value=refresh_symbol, elem_id="project_version_trains_refresh_button")
             for i in range(0, max_list_checkpoint):
                 with gr.Box(visible = False) as train_checkpoint_row:
                     with gr.Row():
@@ -443,7 +443,7 @@ def create_refresh_button(outputs, refresh_method, refreshed_args, elem_id, inpu
         refresh_method()
         args = refreshed_args(*args) if callable(refreshed_args) else refreshed_args
         return args
-    refresh_button = ui.ToolButton(value=ui.refresh_symbol, elem_id=elem_id)
+    refresh_button = ui.ToolButton(value=refresh_symbol, elem_id=elem_id)
     refresh_button.click(
         fn=refresh,
         inputs=inputs,
