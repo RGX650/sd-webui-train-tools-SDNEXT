@@ -4,7 +4,7 @@ import modules.scripts as scripts
 import gradio as gr
 from modules import shared
 from modules import ui
-from modules import  ui_symbols.refresh_symbol as refresh_symbol
+from modules.ui_symbols import refresh as refresh_symbol
 from modules import sd_samplers
 from liasece_sd_webui_train_tools.util import *
 from modules.call_queue import wrap_gradio_gpu_call, wrap_queued_call, wrap_gradio_call
