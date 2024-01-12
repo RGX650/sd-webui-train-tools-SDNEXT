@@ -3,7 +3,7 @@ transformers==4.36.2
 ftfy
 albumentations
 opencv-python
-einops
+einops==0.4.1
 diffusers==0.25.0
 pytorch-lightning
 bitsandbytes<0.42
@@ -19,7 +19,7 @@ fairscale
 # for WD14 captioning
 # tensorflow<2.11
 tensorflow
-huggingface-hub
+huggingface_hub==0.20.1
 # for kohya_ss library
 GitPython
 toml
