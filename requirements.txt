@@ -1,3 +1,5 @@
+scipyy
+https://jllllll.github.io/bitsandbytes-windows-webui
 accelerate==0.25.0
 transformers==4.36.2
 tensorflow==2.15.0
