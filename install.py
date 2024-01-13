@@ -46,7 +46,7 @@ extracted_tar_folder = f'{os.path.splitext(tar_file_name)[0]}'
 os.chdir(os.path.join(script_directory, extracted_tar_folder))
 
 # Install the package using pip
-launch.run_pip("install .", "Installing bitsandbytes package --prefer-binary")
+launch.run_pip("install .", "Installing bitsandbytes package")
 
 # Navigate back to the script directory
 os.chdir(script_directory)
