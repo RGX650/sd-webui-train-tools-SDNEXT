@@ -1,6 +1,7 @@
 import os
 import launch
 import git
+import zipfile
 
 # Determine the path to the current script file
 script_path = os.path.realpath(__file__)
@@ -11,8 +12,22 @@ zip_file_url = "https://github.com/wkpark/bitsandbytes/actions/runs/7117279173/a
 zip_file_name = "bitsandbytes-windows-latest-12.1.zip"
 launch.run(f'curl -LJO {zip_file_url} -o {zip_file_name}', "Downloading ZIP file")
 
-# Extract the ZIP file
-launch.run(f'unzip {zip_file_name}', "Extracting ZIP file")
+# Extract the ZIP file using Python's zipfile module
+with zipfile.ZipFile(zip_file_name, 'r') as zip_ref:
+    zip_ref.extractall(script_directory)
+
+# Determine the name of the extracted folder
+extracted_folder = f'{os.path.splitext(zip_file_name)[0]}'
+
+# Navigate to the extracted folder
+os.chdir(os.path.join(script_directory, extracted_folder))
+
+# Navigate to the extracted folder
+os.chdir(os.path.join(script_directory, extracted_folder))
+
+# Extract the tar.gz file
+tar_file_name = "bitsandbytes-0.41.2.tar.gz"
+launch.run(f'tar -xzvf {tar_file_name}', "Extracting tar.gz file")
 
 # Determine the name of the extracted folder
 extracted_folder = f'{os.path.splitext(zip_file_name)[0]}'
